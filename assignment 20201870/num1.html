@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>여행 계획!</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1px;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 1px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 1px;
+        }
+
+        section {
+            margin: 1px;
+            padding: 1px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1px;
+            bottom: 0;
+            width: 100%;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 0.5px;
+        }
+
+        .block-tag {
+            background-color: #ddd;
+            padding: 1px;
+            margin: 1px;
+        }
+
+        .inline-tag {
+            color: green;
+        }
+
+        /* 목록 스타일링 */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            background-color: #eee;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+    <script>
+          function changePicture(destination) {
+        var picture = document.getElementById("picture");
+        if (destination === "paris") {
+            picture.src = "paris.jpg";
+        } else if (destination === "tokyo") {
+            picture.src = "tokyo.jpg"; 
+        } else if (destination === "seoul") {
+            picture.src = "seoul.jpeg"; 
+        } else if (destination === "jungfrau") {
+            picture.src = "jungfrau.jpg";
+        }
+    }
+    </script>
+
+
+</head>
+
+<body>
+    <header>
+        <h1>여행지 추천 사이트!</h1>
+    </header>
+
+    <nav>
+        <a href="#home">홈</a>
+        <a href="#destinations">여행지</a>
+        <a href="#activities">활동</a>
+        <a href="#about">정보</a>
+    </nav>
+
+    <section>
+        <h2>다양한 여행지</h2>
+
+        <input type="radio" name="destination" id="beach"> <label for="beach">해변</label>
+        <input type="radio" name="destination" id="mountain"> <label for="mountain">산</label>
+        <input type="radio" name="destination" id="city"> <label for="city">도시</label>
+
+        <h3>인기 활동</h3>
+
+        <input type="checkbox" id="hiking"> <label for="hiking">등산</label>
+        <input type="checkbox" id="snorkeling"> <label for="snorkeling">스노클링</label>
+        <input type="checkbox" id="shopping"> <label for="shopping">쇼핑</label>
+
+        <div class="block-tag">
+            <h3>인기 여행 팁</h3>
+            <p>여행 가기 전 필수품: 캐리어, 지도, 일정표</p>
+        </div>
+        
+        <p class="inline-tag">여행을 가고싶어요! 여행을 가고싶어요!</p>
+        
+        <h3>인기 여행지 목록</h3>
+
+        <ul>
+            <li onclick="changePicture('paris')">프랑스 파리</li>
+            <li onclick="changePicture('tokyo')">일본 도쿄</li>
+            <li onclick="changePicture('seoul')">대한민국 서울</li>
+            <li onclick="changePicture('jungfrau')">스위스 융프라우</li>
+        </ul>
+
+        <img id = "picture"  src="paris.jpg" alt="dd">
+    </section>
+
+    <footer>
+        <p>20201870 이우혁</p>
+    </footer>
+</body>
+
+</html>
+ 

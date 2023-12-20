@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>커피 주문하기</title>
+    <style>
+        body {
+            font-family: '맑은 고딕', Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        form {
+            font-family: '맑은 고딕', Arial, sans-serif;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: calc(100% - 22px); 
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: '맑은 고딕', Arial, sans-serif;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        }
+
+       
+        input[type="submit"],
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: '맑은 고딕', Arial, sans-serif;
+        } 
+        h2 {
+            cursor: pointer;
+        }
+
+        h2:hover {
+            color: #45a049; /* 호버 시 색상 변경 */
+        }
+
+
+        input[type="submit"]:hover,
+        button:hover {
+            background-color: #45a049;
+        }
+
+        textarea {
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#">
+        <h2 style="text-align: center;">커피 주문하기 ☕</h2>
+        <input type="text" id="name" name="name" placeholder="이름을 입력하세요">
+        <input type="text" id="coffee-type" name="coffee-type" placeholder="주문하고 싶은 커피 종류를 입력하세요">
+        <textarea id="message" name="message" placeholder="특별한 요청사항을 적어주세요"></textarea>
+        <button type="submit">주문하기</button>
+    </form>
+</body>
+
+</html>

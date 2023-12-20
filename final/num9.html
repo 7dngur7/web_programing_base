@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html lang="ko">
+<head>
+<title></title>
+</head>
+<body>
+<h1 id = "aa"></h1>
+<h1 id="bb"></h1>
+<script>
+    let coffeename = prompt("어떤 커피 드릴까요?", "");
+    let money;
+    switch(coffeename){
+        case "coffee1" :
+        case "coffee2" : {
+            document.getElementById("aa").innerHTML = "aaaaaa";
+            money= 2000;
+            document.getElementById("bb").innerHTML = money;
+
+            break;
+        }
+        case "coffee3" : {
+            document.getElementById("aa").innerHTML = "bbbbbb";
+            money= 3000;
+            document.getElementById("bb").innerHTML = money;
+
+            break;
+        }
+    }
+
+
+
+
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html lang="ko">
+<head>
+<title></title>
+<script>
+    function change(letter){
+        let spans = document.getElementsByTagName(letter);
+        for(let i=0; i<spans.length;i++){
+            let spanarr = spans[i];
+            spanarr.style.color = "red";
+
+
+        }
+
+
+
+    }
+    
+
+
+</script>
+</head>
+<body>
+<h1></h1>
+
+저는 빨간 <span>사과</span>를 좋아해서
+아침마다 한 개씩 먹고 있어요. 운동할 때는 중간 중간에
+<span>바나나</span>를 먹지요. 탄수화물 섭취가 빨라
+힘이 납니다. 또한 달콤한 향기를 품은 <span>체리</span>와
+여름 냄새 물씬 나는 <span>자두</span>를 좋아합니다.
+<script>
+    change("span");
+
+</script>
+</body>
+</html>
+

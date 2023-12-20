@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+    <h1 id="settext">hihi</h1>
+
+    <script>
+        let getText = prompt("입력하세요", "");
+        let gaekchae = {first :"first", second :"second"}
+
+        if(getText === null){
+            document.getElementById("settext").innerHTML = gaekchae.first;
+        }
+        else if(getText === ""){
+            document.getElementById("settext").innerHTML = gaekchae.second;
+        }
+        else{
+            document.getElementById("settext").innerHTML = getText;
+        }
+    </script>
+</body>
+</html>

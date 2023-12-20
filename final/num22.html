@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html lang="ko">
+<head>
+<title></title>
+<script>
+    function findChecked(){
+        let names = document.getElementsByName("city");
+
+        for(let i=0;i<names.length;i++){
+            let oneName = names[i];
+
+            if(oneName.checked === true){
+                alert(oneName.value);
+            }
+        }
+
+    }
+
+</script>
+</head>
+<body>
+<h1></h1>
+<form>
+	<input type="radio" name="city" value="seoul" checked>서울
+	<input type="radio" name="city" value="busan">부산
+	<input type="radio" name="city" value="chunchen">춘천
+	<input type="button" value="find checked" onclick="findChecked()">
+</form>
+</body>
+</html>
+

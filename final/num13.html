@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html lang="ko">
+<head>
+<title></title>
+</head>
+<body>
+<h1></h1>
+<script>
+    let mystring = new String("hihihihihi");
+    function abc(){
+        let date = new Date();
+        document.write(""+date.toLocaleString());
+
+
+        if(date.getSeconds()%2===1){
+		document.body.style.backgroundColor = "violet";
+    }
+    else{
+		document.body.style.backgroundColor = "lightskyblue";
+
+    }
+        setTimeout(abc, 500)
+    }
+    abc();
+
+
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        input:hover{
+            background-color: skyblue;
+        }
+        input[type=text], input[type=email]{
+            color:red;
+        }
+        input[type=text]:focus, input[type=email]:focus{
+            font-size:120%;
+        }
+        label{
+            display: block;
+            align-content:center;
+        }
+        span{
+            align-content: right;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="get">
+        <h2>contact us</h2>
+        <label>
+            <span>Name</span>
+            <input type="text" placeholder="elvis">
+        </label>
+        <label>
+            <span>email</span>
+            <input type="email" placeholder="elvis@naver.com">
+        </label>
+        <label>
+            <span>Comment</span>
+            <textarea placeholder="메시지를 남겨주세요"></textarea>
+        </label>
+        <input type="submit">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html lang="ko">
+<head>
+<title></title>
+<script>
+
+    function gaekchae(name, money){
+        this.name = name;
+        this.money = money;
+
+        this.getmoney = function () {return this.money},
+        this.plus = function(newmoney){this.money +=parseInt(newmoney)}
+    }
+    
+</script>
+</head>
+<body>
+<h1></h1>
+   <script>
+        let newgaek = new gaekchae("myname", 1000);
+    document.write(newgaek.name);
+    document.write(newgaek.getmoney()+ "<br>");
+
+    newgaek.plus(10000)
+    document.write(newgaek.getmoney());
+
+
+
+
+
+   </script>
+
+</body>
+</html>
+

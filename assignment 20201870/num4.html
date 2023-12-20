@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>내가 사랑하는 도시의 맛집 찾기</title>
+</head>
+<body>
+<h3>내가 사랑하는 도시의 맛집 찾기</h3>
+<hr>
+<div id="msg">이곳에 위치 정보 출력</div>
+<iframe id="map" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br/>
+<a id="bigmaplink" target="_blank">새 창에 큰 지도 보기</a>
+<br><br>
+<h4>주변 맛집</h4>
+<ol>
+    <li><a href="#" id="restaurant1" target="_blank">서울 맛집</a></li>
+    <li><a href="#" id="restaurant2" target="_blank">제주도 맛집</a></li>
+    <li><a href="#" id="restaurant3" target="_blank">부산 맛집</a></li>
+</ol>
+
+<script>
+if (navigator.geolocation) 
+    navigator.geolocation.getCurrentPosition(success);
+else 
+    alert("지원하지 않음");
+function success(position) {
+    let lat = position.coords.latitude; 
+    let lon = position.coords.longitude; 
+    let acc = position.coords.accuracy;
+
+    lat = lat.toPrecision(6); lon = lon.toPrecision(6);
+
+    let now = new Date(position.timestamp);
+    let text = "현재 시간 " + now.toUTCString() + "<br>";
+    text += "현재 위치 (위도 " + lat + "°, 경도 " + lon + "°)<br>";
+    text += "정확도 " + acc + "m<br>";
+    document.getElementById("msg").innerHTML = text;
+
+    let map = document.getElementById("map");
+    map.src = "https://www.openstreetmap.org/export/embed.html?bbox=" +
+        (parseFloat(lon) - 0.01) + "%2C" + (parseFloat(lat) - 0.01) + "%2C" +
+        (parseFloat(lon) + 0.01) + "%2C" + (parseFloat(lat) + 0.01);
+
+    let maplink = document.getElementById("bigmaplink");
+    let zoom = 14; 
+    maplink.href = "https://www.openstreetmap.org/#map=" + zoom + "/" + lat + "/" + lon;
+
+    const cities = [
+        { name: "서울", lat: 37.5665, lon: 126.9780 },
+        { name: "제주도", lat: 33.4890, lon: 126.4983 },
+        { name: "부산", lat: 35.1796, lon: 129.0756 }
+    ];
+
+    for (let i = 0; i < cities.length; i++) {
+        const cityLink = document.getElementById("restaurant" + (i + 1));
+        cityLink.href = "https://www.openstreetmap.org/#map=" + zoom + "/" + cities[i].lat + "/" + cities[i].lon;
+    }
+}
+</script>
+</body>
+</html>

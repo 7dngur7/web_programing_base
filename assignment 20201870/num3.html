@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>지뢰찾기 게임</title>
+    <style>
+        .cell {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #ccc;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .cell.clicked {
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="board"></div>
+
+    <script>
+        const ROWS = 6;
+        const COLS = 6;
+        const MINE_COUNT = 6;
+
+        let board = [];
+        let revealedCount = 0;
+
+        function createBoard() {
+            for (let i = 0; i < ROWS; i++) {
+                board[i] = [];
+                for (let j = 0; j < COLS; j++) {
+                    board[i][j] = {
+                        isMine: false,
+                        isRevealed: false,
+                    };
+                }
+            }
+        }
+
+        function plantMines() {
+            let plantedMines = 0;
+            while (plantedMines < MINE_COUNT) {
+                const row = Math.floor(Math.random() * ROWS);
+                const col = Math.floor(Math.random() * COLS);
+                if (!board[row][col].isMine) {
+                    board[row][col].isMine = true;
+                    plantedMines++;
+                }
+            }
+        }
+
+        function countAdjacentMines(row, col) {
+            let count = 0;
+
+            for (let i = row - 1; i <= row + 1; i++) {
+                for (let j = col - 1; j <= col + 1; j++) {
+                    if (i >= 0 && i < ROWS && j >= 0 && j < COLS && !(i === row && j === col)) {
+                        if (board[i][j].isMine) {
+                            count++;
+                        }
+                    }
+                }
+            }
+
+            return count;
+        }
+
+        function revealCell(row, col) {
+            const cell = document.getElementById(`cell-${row}-${col}`);
+
+            if (board[row][col].isMine) {
+                alert('지뢰를 밟았습니다! 게임 오버!');
+                location.reload();
+            } else {
+                const mineCount = countAdjacentMines(row, col);
+                cell.textContent = mineCount;
+                cell.classList.add('clicked');
+                board[row][col].isRevealed = true;
+                revealedCount++;
+
+                if (revealedCount === ROWS * COLS - MINE_COUNT) {
+                    alert('축하합니다! 게임 성공!');
+                    location.reload();
+                }
+
+                if (mineCount === 0) {
+                    for (let i = row - 1; i <= row + 1; i++) {
+                        for (let j = col - 1; j <= col + 1; j++) {
+                            if (i >= 0 && i < ROWS && j >= 0 && j < COLS && !(i === row && j === col) && !board[i][j].isRevealed) {
+                                revealCell(i, j);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function initializeGame() {
+            createBoard();
+            plantMines();
+
+            const boardContainer = document.getElementById('board');
+            for (let i = 0; i < ROWS; i++) {
+                for (let j = 0; j < COLS; j++) {
+                    const cell = document.createElement('div');
+                    cell.classList.add('cell');
+                    cell.setAttribute('id', `cell-${i}-${j}`);
+                    cell.addEventListener('click', () => revealCell(i, j));
+                    boardContainer.appendChild(cell);
+                }
+                boardContainer.appendChild(document.createElement('br'));
+            }
+        }
+
+        initializeGame();
+    </script>
+</body>
+
+</html>

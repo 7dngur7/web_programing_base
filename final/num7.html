@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+    <h1 id="settext">hihi</h1>
+
+    <script>
+        let getText = prompt("입력하세요", "");
+        let gaekchae = {first :"first", second :"second"}
+        let num = 0;
+
+        if(getText === null){
+            document.getElementById("settext").innerHTML = gaekchae.first;
+        }
+        else if(getText === ""){
+            document.getElementById("settext").innerHTML = gaekchae.second;
+        }
+        else{
+            num+=parseInt(getText);
+        }
+
+        let getText2 = prompt("입력하세요", "");
+
+        if(getText === null){
+            document.getElementById("settext").innerHTML = gaekchae.first;
+        }
+        else if(getText === ""){
+            document.getElementById("settext").innerHTML = gaekchae.second;
+        }
+        else{
+            num+=parseInt(getText2);
+
+            document.write(num);
+            }
+    </script>
+</body>
+</html>
